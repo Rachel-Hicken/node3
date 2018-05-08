@@ -9,7 +9,7 @@ class User extends Component {
       birthdayMonth:4,
       brithdayDay:28,
       gender:"male",
-      name:{last:"Gross",first:"Sanchez"},
+      name:{last:"Pete",first:"Sanchez"},
       hairColor:"blond",
       eyeColor:"blue",
       picture:"https://robohash.org/63017545.jpg?size=100x100&set=set4",

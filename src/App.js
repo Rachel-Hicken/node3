@@ -4,8 +4,9 @@ import axios from 'axios';
 import './App.css';
 import User from './User';
 
+// Turn an object into query parameters
 function serialize( obj ) {
-  return '?'+Object.keys(obj).reduce(function(a,k){a.push(k+'='+encodeURIComponent(obj[k]));return a},[]).join('&')
+  return '?'+Object.keys(obj).map((a,k) => k+'='+encodeURIComponent(obj[k]).join('&')
 }
 
 class App extends Component {
