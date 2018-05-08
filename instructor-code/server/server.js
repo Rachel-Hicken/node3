@@ -87,10 +87,16 @@ app.get('/api/get', (req, res)=>{
 // Then change so that it only returns if the user is set to love pizza
 // Cause you can't trust those hamburger eaters.
 
-app.get('/api/users', pizzaLover, (req, res)=>{
+app.get('/api/users', (req, res)=>{
     let filtered = data;
     if (req.query.eye){
         filtered = filtered.filter( user=> user.eyeColor === req.query.eye);
+    }
+    if (req.query.hair){
+        filtered = filtered.filter( user=> user.hairColor === req.query.hair);
+    }
+    if (req.query.name){
+        filtered = filtered.filter( user=> `${user.name.first} ${user.name.last}`.includes(req.query.name))
     }
   res.send(filtered);
 })

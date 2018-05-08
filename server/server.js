@@ -73,6 +73,12 @@ app.get('/api/users', pizzaLover, (req, res) => {
   if(req.query.eye){
     filtered = filtered.filter(user=>user.eyeColor === req.query.eye);
   }
+  if(req.query.hair){
+    filtered = filtered.filter(user=>user.hairColor === req.query.hair);
+  }
+  if(req.query.name){
+    filtered = filtered.filter(user=>`${user.name.first} ${user.name.last}`.indexOf(req.query.name)>-1);
+  }
   res.send(filtered);
 })
 
