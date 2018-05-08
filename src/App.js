@@ -47,10 +47,10 @@ class App extends Component {
       filter+=`name=${this.state.filters.name}&`;
     }
     if (this.state.filters.eye){
-      filter+=`name=${this.state.filters.name}&`;
+      filter+=`eye=${this.state.filters.eye}&`;
     }
     if (this.state.filters.hair){
-      filter+=`name=${this.state.filters.name}&`;
+      filter+=`hair=${this.state.filters.hair}&`;
     }
     axios.get('/api/users' + filter).then(resp=>this.setState({users:resp.data}));
   }
@@ -82,7 +82,7 @@ class App extends Component {
           <button onClick={()=>this.setFavorite('shakes')}>Set Favorite To shakes</button>
           <div>set: {this.state.set?"Set":"Unset"}</div>
           <div>favorite: {this.state.favorite}</div>
-          <input type="text" onChange={(e)=>this.handleNameInput(e.target.value)}/>
+          <input type="text" onChange={(e)=>this.handleNameInput(e.target.value || '')}/>
           <select onChange={(e)=>this.setFilter('eye', e.target.value)}>
             <option value="blue">Blue</option>
             <option value="brown">Brown</option>
