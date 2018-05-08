@@ -6,7 +6,7 @@ import User from './User';
 
 // Turn an object into query parameters
 function serialize( obj ) {
-  return '?'+Object.keys(obj).map((a,k) => k+'='+encodeURIComponent(obj[k]).join('&')
+  return '?'+Object.keys(obj).map((a,k) => k+'='+encodeURIComponent(obj[k]).join('&'))
 }
 
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
   }
   getFavorite(){
     axios.get('/api/get').then(resp=>{
-      this.setState({favorite:resp.data})
+      this.setState({favorite:resp.data.favorite + ' is your favorite', set:!!resp.data.favorite})
 
     }).catch(err=>console.err);
   }
